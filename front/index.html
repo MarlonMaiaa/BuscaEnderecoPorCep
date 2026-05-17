@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consulta de CEP</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="background">
+    <div class="grid-lines"></div>
+  </div>
+
+  <main class="container">
+
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">&#9679;</span>
+        <span class="logo-text">CEP<strong>finder</strong></span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1 class="title">Consulta<br /><span class="accent">de CEP</span></h1>
+      <p class="subtitle">Informe um CEP para localizar o endereço completo.</p>
+    </section>
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="cep-input"
+        class="cep-input"
+        maxlength="9"
+        placeholder="00000-000"
+        autocomplete="off"
+      />
+      <button id="btn-buscar" class="btn-buscar" onclick="buscar()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Buscar
+      </button>
+    </div>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <span>Buscando endereço...</span>
+    </div>
+
+    <div id="erro" class="erro hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span id="erro-msg"></span>
+    </div>
+
+    <div id="resultado" class="resultado hidden">
+      <div class="resultado-header">
+        <span class="tag">Endereço encontrado</span>
+        <span id="res-cep" class="cep-badge"></span>
+      </div>
+      <div class="resultado-body">
+        <div class="campo">
+          <span class="campo-label">Logradouro</span>
+          <span id="res-logradouro" class="campo-valor"></span>
+        </div>
+        <div class="campo">
+          <span class="campo-label">Complemento</span>
+          <span id="res-complemento" class="campo-valor"></span>
+        </div>
+        <div class="campo">
+          <span class="campo-label">Bairro</span>
+          <span id="res-bairro" class="campo-valor"></span>
+        </div>
+        <div class="campo">
+          <span class="campo-label">Cidade</span>
+          <span id="res-cidade" class="campo-valor"></span>
+        </div>
+        <div class="campo-row">
+          <div class="campo">
+            <span class="campo-label">UF</span>
+            <span id="res-uf" class="campo-valor uf"></span>
+          </div>
+          <div class="campo">
+            <span class="campo-label">DDD</span>
+            <span id="res-ddd" class="campo-valor"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

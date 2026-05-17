@@ -22,7 +22,8 @@ public class BuscarEndereco {
 
             System.out.println("\nPara o CEP informado " + cep + ", segue o endereço:");
             System.out.println(endereco);
-
+                GeradorDeArquivo gerador = new GeradorDeArquivo();
+                gerador.salvaJson(endereco);
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
         }
